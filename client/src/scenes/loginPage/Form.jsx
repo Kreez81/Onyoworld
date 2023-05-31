@@ -195,7 +195,7 @@ function Form () {
                       >
                         <input {...getInputProps()} />
                         {!values.picture ? (
-                          <p>Add Picture Here</p>
+                          <p>Add your profile here</p>
                         ) : (
                           <FlexBetween>
                             <Typography>{values.picture.name}</Typography>
