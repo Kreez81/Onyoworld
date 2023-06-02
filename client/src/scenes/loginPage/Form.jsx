@@ -16,6 +16,7 @@ import { setLogin } from "state";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 
+
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
@@ -96,6 +97,7 @@ function Form () {
       navigate("/home");
     }
   };
+
 
   const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
@@ -218,7 +220,9 @@ function Form () {
               error={Boolean(touched.email) && Boolean(errors.email)}
               helperText={touched.email && errors.email}
               sx={{ gridColumn: "span 4" }}
+
             />
+            
             <TextField
               label="Password"
               type="password"
@@ -230,6 +234,8 @@ function Form () {
               helperText={touched.password && errors.password}
               sx={{ gridColumn: "span 4" }}
             />
+            
+            
           </Box>
 
           {/* BUTTONS */}

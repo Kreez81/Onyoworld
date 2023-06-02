@@ -47,7 +47,7 @@ const UserWidget = ({ userId, picturePath }) => {
         impressions,
         friends,
     } = user;
-    console.log(impressions);
+
     return (
         <WidgetWrapper>
             {/* FIRST ROW */}
@@ -106,7 +106,7 @@ const UserWidget = ({ userId, picturePath }) => {
                 <FlexBetween>
                     <Typography color={medium}>Post impressions</Typography>
                     <Typography color={main} fontWeight="500">
-                        {}
+                        {impressions}
                     </Typography>
                 </FlexBetween>
             </Box>
