@@ -52,8 +52,9 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
             fontWeight="500"
             sx={{
               "&:hover": {
-                color: palette.primary.light,
+                color: palette.primary.dark,
                 cursor: "pointer",
+                transition: "250ms ease-in-out",
               },
             }}
           >

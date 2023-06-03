@@ -69,7 +69,13 @@ const MyPostWidget = ({ picturePath }) => {
             width: "100%",
             backgroundColor: palette.neutral.light,
             borderRadius: "2rem",
+            border: "1.5px solid transparent",
             padding: "1rem 2rem",
+            "&:hover": {
+              border: "1.5px solid white",
+              transition: "200ms ease-in-out",
+            },
+            "&:focus":{border:"1px solid cyan"},
           }}
         />
       </FlexBetween>
@@ -81,7 +87,10 @@ const MyPostWidget = ({ picturePath }) => {
           p="1rem"
         >
           <Dropzone
-            acceptedFiles=".jpg,.jpeg,.png"
+            accept={{
+              "image/jpeg": [".jpg", ".jpeg"],
+              "image/png": [".png"],
+            }}
             multiple={false}
             onDrop={(acceptedFiles) => setImage(acceptedFiles[0])}
           >

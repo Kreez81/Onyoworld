@@ -66,7 +66,7 @@ const UserWidget = ({ userId, picturePath }) => {
                             sx={{
                                 "&:hover": {
                                     color: palette.primary.dark,
-                                    transition: "250ms ease-in-out",
+                                    transition: "200ms ease-in-out",
                                     cursor: "pointer",
                                 },
                             }}
@@ -84,11 +84,11 @@ const UserWidget = ({ userId, picturePath }) => {
             {/* SECOND ROW */}
             <Box p="1rem 0">
                 <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
-                    <LocationOnOutlined fontSize="large" sx={{ color: main }} />
+                    <LocationOnOutlined fontSize="large" sx={{ color: main }} /> -
                     <Typography color={medium}>{location}</Typography>
                 </Box>
                 <Box display="flex" alignItems="center" gap="1rem">
-                    <WorkOutlineOutlined fontSize="large" sx={{ color: main }} />
+                    <WorkOutlineOutlined fontSize="large" sx={{ color: main }} /> -
                     <Typography color={medium}>{occupation}</Typography>
                 </Box>
             </Box>
@@ -98,13 +98,13 @@ const UserWidget = ({ userId, picturePath }) => {
             {/* THIRD ROW */}
             <Box p="1rem 0">
                 <FlexBetween mb="0.5rem">
-                    <Typography color={medium}>Profile viewed</Typography>
+                    <Typography color={medium}>Profile viewed -</Typography>
                     <Typography color={main} fontWeight="500">
                         {viewedProfile}
                     </Typography>
                 </FlexBetween>
                 <FlexBetween>
-                    <Typography color={medium}>Post impressions</Typography>
+                    <Typography color={medium}>Post impressions -</Typography>
                     <Typography color={main} fontWeight="500">
                         {impressions}
                     </Typography>
