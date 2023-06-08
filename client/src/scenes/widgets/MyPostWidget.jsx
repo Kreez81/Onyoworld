@@ -67,10 +67,10 @@ function MyPostWidget() {
             width: "100%",
             backgroundColor: palette.neutral.light,
             borderRadius: "2rem",
-            border: "1.5px solid transparent",
+            border: "1.8px solid transparent",
             padding: "1rem 2rem",
             "&:hover": {
-              border: "1.5px solid white",
+              border: "1.8px solid cyan",
               transition: "200ms ease-in-out",
             },
             "&:focus":{border:"1px solid cyan"},
