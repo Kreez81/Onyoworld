@@ -5,7 +5,7 @@ import {
     WorkOutlineOutlined,
 } from "@mui/icons-material";
 import { Box, Typography, Divider, useTheme } from "@mui/material";
-import UserImage from "components/UserImage";
+import UserProfile from "components/UserProfile";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useSelector } from "react-redux";
@@ -57,7 +57,7 @@ const UserWidget = ({ userId, picturePath }) => {
                 onClick={() => navigate(`/profile/${userId}`)}
             >
                 <FlexBetween gap="1rem">
-                    <UserImage image={picturePath} />
+                    <UserProfile firstName={user.firstName.charAt(0).toUpperCase()} />
                     <Box>
                         <Typography
                             variant="h4"

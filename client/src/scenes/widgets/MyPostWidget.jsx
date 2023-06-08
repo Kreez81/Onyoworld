@@ -19,13 +19,12 @@ import {
 } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import Dropzone from "react-dropzone";
-import UserImage from "components/UserImage";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 
-const MyPostWidget = ({ picturePath }) => {
+function MyPostWidget() {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
@@ -60,7 +59,6 @@ const MyPostWidget = ({ picturePath }) => {
   return (
     <WidgetWrapper>
       <FlexBetween gap="1.5rem">
-        <UserImage image={picturePath} />
         <InputBase
           placeholder="What's on your mind..."
           onChange={(e) => setPost(e.target.value)}
