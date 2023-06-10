@@ -18,7 +18,7 @@ const ProfilePage = () => {
   const main = palette.primary.dark;
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    const response = await fetch(`https://onyoworld-api.onrender.com/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
