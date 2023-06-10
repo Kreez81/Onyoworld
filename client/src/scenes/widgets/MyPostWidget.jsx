@@ -19,12 +19,13 @@ import {
 } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import Dropzone from "react-dropzone";
+// import UserImage from "components/UserImage";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 
-function MyPostWidget() {
+const MyPostWidget = ({ picturePath }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
@@ -45,7 +46,7 @@ function MyPostWidget() {
       formData.append("picturePath", image.name);
     }
 
-    const response = await fetch(`https://localhost:3001/posts`, {
+    const response = await fetch(`http://localhost:3001/posts`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
@@ -59,6 +60,7 @@ function MyPostWidget() {
   return (
     <WidgetWrapper>
       <FlexBetween gap="1.5rem">
+        {/* <UserImage image={picturePath} /> */}
         <InputBase
           placeholder="What's on your mind..."
           onChange={(e) => setPost(e.target.value)}
@@ -71,9 +73,8 @@ function MyPostWidget() {
             padding: "1rem 2rem",
             "&:hover": {
               border: "1.8px solid cyan",
-              transition: "200ms ease-in-out",
+              transition: "250ms ease-in-out",
             },
-            "&:focus":{border:"1px solid cyan"},
           }}
         />
       </FlexBetween>
@@ -85,10 +86,7 @@ function MyPostWidget() {
           p="1rem"
         >
           <Dropzone
-            accept={{
-              "image/jpeg": [".jpg", ".jpeg"],
-              "image/png": [".png"],
-            }}
+            acceptedFiles=".jpg,.jpeg,.png"
             multiple={false}
             onDrop={(acceptedFiles) => setImage(acceptedFiles[0])}
           >
@@ -114,7 +112,7 @@ function MyPostWidget() {
                 {image && (
                   <IconButton
                     onClick={() => setImage(null)}
-                    sx={{ width: "7%", marginLeft:"8px" }}
+                    sx={{ width: "15%" }}
                   >
                     <DeleteOutlined />
                   </IconButton>
@@ -166,7 +164,7 @@ function MyPostWidget() {
           onClick={handlePost}
           sx={{
             color: palette.background.alt,
-            backgroundColor: palette.primary.white,
+            backgroundColor: palette.primary.main,
             borderRadius: "3rem",
             "&:hover": {
               backgroundColor: palette.primary.dark,
@@ -174,7 +172,7 @@ function MyPostWidget() {
             },
           }}
         >
-          SHARE
+          POST
         </Button>
       </FlexBetween>
     </WidgetWrapper>

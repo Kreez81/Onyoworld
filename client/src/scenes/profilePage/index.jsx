@@ -1,4 +1,5 @@
-import { Box, useMediaQuery } from "@mui/material";
+import { useTheme } from "@emotion/react";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -8,14 +9,16 @@ import FriendListWidget from "scenes/widgets/FriendListWidget";
 import PostsWidget from "scenes/widgets/PostsWidget";
 import UserWidget from "scenes/widgets/UserWidget";
 
-function ProfilePage () {
+const ProfilePage = () => {
   const [user, setUser] = useState(null);
+  const { palette } = useTheme();
   const { userId } = useParams();
   const token = useSelector((state) => state.token);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
+  const main = palette.primary.dark;
 
   const getUser = async () => {
-    const response = await fetch(`https://localhost:3001/users/${userId}`, {
+    const response = await fetch(`http://localhost:3001/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -48,8 +51,9 @@ function ProfilePage () {
           flexBasis={isNonMobileScreens ? "42%" : undefined}
           mt={isNonMobileScreens ? undefined : "2rem"}
         >
-          {/* <MyPostWidget /> */}
-          {/* <Box m="2rem 0" /> */}
+          {/* <MyPostWidget picturePath={user.picturePath} /> */}
+          <Typography display="flex" justifyContent="center" fontSize="2.5vh" color={main} >POSTS</Typography>
+          <Box m="2rem 0" />
           <PostsWidget userId={userId} isProfile />
         </Box>
       </Box>

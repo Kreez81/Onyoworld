@@ -10,10 +10,11 @@ const FriendListWidget = ({ userId }) => {
   const { palette } = useTheme();
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
+  const primaryLight = palette.primary.light;
 
   const getFriends = async () => {
     const response = await fetch(
-      `https://localhost:3001/users/${userId}/friends`,
+      `http://localhost:3001/users/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
@@ -32,10 +33,13 @@ const FriendListWidget = ({ userId }) => {
       <Typography
         color={palette.neutral.dark}
         variant="h5"
+        fontSize="2vh"
         fontWeight="500"
+        display="flex"
+        justifyContent="center"
         sx={{ mb: "1.5rem" }}
       >
-        Friends
+        Friend List
       </Typography>
       <Box display="flex" flexDirection="column" gap="1.5rem">
         {friends.map((friend) => (

@@ -16,7 +16,6 @@ import { setLogin } from "state";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 
-
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
@@ -47,7 +46,7 @@ const initialValuesLogin = {
   password: "",
 };
 
-function Form () {
+const Form = () => {
   const [pageType, setPageType] = useState("login");
   const { palette } = useTheme();
   const dispatch = useDispatch();
@@ -65,7 +64,7 @@ function Form () {
     formData.append("picturePath", values.picture.name);
 
     const savedUserResponse = await fetch(
-      "https://localhost:3001/auth/register",
+      "http://localhost:3001/auth/register",
       {
         method: "POST",
         body: formData,
@@ -80,7 +79,7 @@ function Form () {
   };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch("https://localhost:3001/auth/login", {
+    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -97,7 +96,6 @@ function Form () {
       navigate("/home");
     }
   };
-
 
   const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
@@ -197,7 +195,7 @@ function Form () {
                       >
                         <input {...getInputProps()} />
                         {!values.picture ? (
-                          <p>Your profile will be first letter of your name</p>
+                          <p>Add Picture Here</p>
                         ) : (
                           <FlexBetween>
                             <Typography>{values.picture.name}</Typography>
@@ -220,9 +218,7 @@ function Form () {
               error={Boolean(touched.email) && Boolean(errors.email)}
               helperText={touched.email && errors.email}
               sx={{ gridColumn: "span 4" }}
-
             />
-            
             <TextField
               label="Password"
               type="password"
@@ -234,8 +230,6 @@ function Form () {
               helperText={touched.password && errors.password}
               sx={{ gridColumn: "span 4" }}
             />
-            
-            
           </Box>
 
           {/* BUTTONS */}
@@ -248,7 +242,7 @@ function Form () {
                 p: "1rem",
                 backgroundColor: palette.primary.main,
                 color: palette.background.alt,
-                "&:hover": { backgroundColor: palette.primary.dark },
+                "&:hover": { color: palette.primary.main },
               }}
             >
               {isLogin ? "LOGIN" : "REGISTER"}
@@ -263,8 +257,7 @@ function Form () {
                 color: palette.primary.main,
                 "&:hover": {
                   cursor: "pointer",
-                  color: palette.primary.dark,
-                  transition: "250ms ease-in-out",
+                  color: palette.primary.light,
                 },
               }}
             >
