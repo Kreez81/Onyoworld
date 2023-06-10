@@ -10,7 +10,7 @@ const FriendListWidget = ({ userId }) => {
   const { palette } = useTheme();
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
-  const primaryLight = palette.primary.light;
+  // const primaryLight = palette.primary.light;
 
   const getFriends = async () => {
     const response = await fetch(
