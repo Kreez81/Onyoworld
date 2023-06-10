@@ -10,7 +10,7 @@ A social media application with MERN
 Suggest me any changes, Thank you!
 
 # This is live -
-"https://onyoworld.onrender.com/"
+You can check it here : "https://onyoworld.onrender.com/"
 
 # Build with - 🛠️
 ##&nbsp;FRONTEND -<br/>
@@ -28,5 +28,7 @@ Suggest me any changes, Thank you!
 ##&nbsp;DATABASE -<br/>
 
 <img src="https://github.com/Kreez81/Onyoworld/assets/110679627/e9b32972-f2f1-47dc-9071-6edb171b885b" width=22>&ensp;MongoDB
+
+# THANK YOU 👋
 
 
