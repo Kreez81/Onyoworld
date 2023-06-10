@@ -8,7 +8,7 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`https://onyoworld-api.onrender.com/assets/${image}`}
+        src={`https://localhost:3001/${image}`}
       />
     </Box>
   );

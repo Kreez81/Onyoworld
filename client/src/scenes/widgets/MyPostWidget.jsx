@@ -45,7 +45,7 @@ function MyPostWidget() {
       formData.append("picturePath", image.name);
     }
 
-    const response = await fetch(`https://onyoworld-api.onrender.com/posts`, {
+    const response = await fetch(`https://localhost:3001/posts`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,

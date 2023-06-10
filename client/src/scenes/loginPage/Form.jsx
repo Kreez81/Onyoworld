@@ -65,7 +65,7 @@ function Form () {
     formData.append("picturePath", values.picture.name);
 
     const savedUserResponse = await fetch(
-      "https://onyoworld-api.onrender.com/auth/register",
+      "https://localhost:3001/auth/register",
       {
         method: "POST",
         body: formData,
@@ -80,7 +80,7 @@ function Form () {
   };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch("https://onyoworld-api.onrender.com/auth/login", {
+    const loggedInResponse = await fetch("https://localhost:3001/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
