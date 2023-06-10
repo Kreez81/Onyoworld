@@ -117,7 +117,7 @@ function Form () {
         handleBlur,
         handleChange,
         handleSubmit,
-        
+        setFieldValue,
         resetForm,
       }) => (
         <form onSubmit={handleSubmit}>
@@ -184,9 +184,9 @@ function Form () {
                   <Dropzone
                     acceptedFiles=".jpg,.jpeg,.png"
                     multiple={false}
-                    // onDrop={(acceptedFiles) =>
-                    //   setFieldValue("picture", acceptedFiles[0])
-                    // }
+                    onDrop={(acceptedFiles) =>
+                      setFieldValue("picture", acceptedFiles[0])
+                    }
                   >
                     {({ getRootProps, getInputProps }) => (
                       <Box
