@@ -195,7 +195,7 @@ const Form = () => {
                       >
                         <input {...getInputProps()} />
                         {!values.picture ? (
-                          <p>Add Picture Here</p>
+                          <p>Your profile will be first letter of your name!</p>
                         ) : (
                           <FlexBetween>
                             <Typography>{values.picture.name}</Typography>
