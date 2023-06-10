@@ -78,7 +78,7 @@ export const themeSettings = (mode) => {
             white: colorTokens.cyan[600],
           },
           neutral: {
-            dark: colorTokens.grey[700],
+            dark: colorTokens.grey[900],
             main: colorTokens.grey[500],
             mediumMain: colorTokens.grey[400],
             medium: colorTokens.grey[300],
